@@ -1,8 +1,9 @@
-const {generateText} = require('./util');
+const {generateText, checkAndGenerate} = require('./util');
 
+/* unit test */
 test('should output name and age',()=>{
 
-    /* double checks to avoid false possitive */
+    // double checks to avoid false possitive 
     const text = generateText('Ali',20)
     expect(text).toBe('Ali (20 years old)')
 
@@ -11,8 +12,15 @@ test('should output name and age',()=>{
 })
 
 
-/* test the opposite */
+// test the opposite 
 test('should output name and age',()=>{
     const text = generateText('',null)
     expect(text).toBe(' (null years old)')
+})
+
+
+/* integration test */
+test('should generate a valid text output', ()=>{
+    const text = checkAndGenerate('Ali',20)
+    expect(text).toBe('Ali (20 years old)')
 })

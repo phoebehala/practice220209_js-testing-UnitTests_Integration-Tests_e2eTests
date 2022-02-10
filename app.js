@@ -1,4 +1,4 @@
-const { generateText, createElement, validateInput } = require('./util');
+const { generateText, createElement, checkAndGenerate} = require('./util');
 
 const initApp = () => {
   // Initializes the app, registers the button click listener
@@ -12,10 +12,13 @@ const addUser = () => {
   const newUserNameInput = document.querySelector('input#name');
   const newUserAgeInput = document.querySelector('input#age');
 
-  if (
-    !validateInput(newUserNameInput.value, true, false) ||
-    !validateInput(newUserAgeInput.value, false, true)
-  ) {
+  /* do intergration test */
+  const outputText = checkAndGenerate(
+    newUserNameInput.value,
+    newUserAgeInput.value
+  );
+
+  if (!outputText) {
     return;
   }
 

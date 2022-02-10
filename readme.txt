@@ -6,8 +6,6 @@
 1.
 npm i --save-dev jest
 
-2. 
-run the test:
+2. run the test
 
-3. 
 npm test
